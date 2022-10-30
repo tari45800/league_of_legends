@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+<!-- ================================================== -->
+
+  <script src="https://kit.fontawesome.com/dca238fc5f.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/jquery-3.6.0.js"></script>
+  <script>
+
+    $(function(){
+      
+      // ==================================================
+
+      //아이콘 클릭
+      $('.icon').click(function(){
+        $('.client').css({"opacity":"1"})
+      })
+
+      // ==================================================
+
+
+      //로그인 폼 클릭
+      $('.loginContent input[type=text], .loginContent input[type=password]').click(function(){
+        $(this).css({"background-color": "white"})
+        $(this).siblings().css({"top":"5px", "left":"3%"})
+      })
+
+      //로그인 폼 포커스 아웃
+      $('.loginContent input[type=text], .loginContent input[type=password]').focusout(function(){
+
+        var val = $(this).val()
+        var id =  $('.loginContent input[type=text]').val()
+        var pass =  $('.loginContent input[type=password]').val()
+
+        if(val == ""){
+          $(this).siblings().css({"top":"18px", "left":"7%"})
+        } else if(id != "" && pass != ""){
+          $('.fa-arrow-right').css({'border':'none', 'background-color':'crimson', 'color':'white'})
+        }
+        $(this).css({"background-color": "#eee"})
+      })
+
+
+      // ==================================================
+
+
+
+    })
+
+  </script>
+
+
+<!-- ================================================== -->
+
+</head>
+
+<body style="background-image: url(../img/window.jpg);">
+
+  <img class="icon" src="../img/icon.png" alt="롤 아이콘" width="70px" height="70px" style="margin: 30px; cursor: pointer;">
+
+  <div class="client">
+
+    <div class="login">
+
+ 
+
+      <img class="mainLogo" src="../img/riot.png" alt="라이엇 로고" width="150px">
+
+
+
+      <div class="loginContent">
+
+        <div class="loginWord">
+          <h2>로그인</h2>
+        </div>
+
+        <div class="id">
+          <span class="idSpan">계정이름</span>
+          <input type="text" >
+        </div>
+        
+        <div class="passwd">
+          <span class="passwdSpan">비밀번호</span>
+          <input type="password" >
+        </div>
+
+        <div class="logos">
+          <span><i class="fa-brands fa-facebook"></i></span>
+          <span><i class="fa-brands fa-google"></i></span>
+          <span><i class="fa-brands fa-apple"></i></span>
+        </div>
+
+        <input type="checkbox" id="stay">
+        <label for="stay"></label>
+        <span class="stay">로그인 상태 유지</span> 
+
+
+      </div>
+      <div class="loginContent2">
+
+        <a href=""><span><i class="fa-solid fa-arrow-right"></i></span></a>
+        
+        <a href="">로그인이 안 되시나요?</a><br>
+        <a href="">계정 생성</a>
+      </div>
+
+    </div>
+    
+    <div class="login_screan">
+
+
+
+      <div>
+      <video autoplay loop>
+        <source src="../img/mian.mp4" type="video/mp4" >
+      </video>
+     </div>
+
+
+
+    </div>
+  
+  </div>
+</body>
+
+</html>
