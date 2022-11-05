@@ -252,7 +252,6 @@ text textPath{
   border-top: 1px solid rgb(200, 190, 140);
   border-bottom: 1px solid rgba(192, 188, 170, 0.381);
   box-sizing: border-box;
-  z-index: ;  
 
 }
 
@@ -267,6 +266,7 @@ text textPath{
   height: 11%;
   top: 0;
   left: 0;
+  
 }
 
 /* 메인 테두리 */
@@ -278,7 +278,7 @@ text textPath{
   bottom: 0;
   padding-left: 30px;
   padding-right: 30px;
-  z-index: 2;
+  z-index: 1;
 }
 
 /* 커뮤니티 테두리 */
@@ -291,6 +291,7 @@ text textPath{
   right: 0;
   background-color:rgb(0, 4, 25);
   z-index: 1;
+
 }
 
 /* 게임 시작 버튼 ================================================== */
@@ -496,18 +497,115 @@ text textPath{
   border-top: 1px solid rgb(200, 190, 140);
   border-bottom: 0.5px solid rgba(192, 188, 170, 0.381);
   box-sizing: border-box;
+  
 }
+
+/* 호버 프로필 */
+.profilDetailDiv{
+  display: none;
+}
+
+.profil:hover ~.profilDetailDiv{
+  display: block;
+}
+
+
+
+/* 프로필 상세 */
+.profilDetailDiv .allEdge{
+  position: absolute;
+  top: 40%;
+  left: -180%;
+  width: 500px;
+  height: 270px;
+  z-index: 1;
+}
+
+/* 프로필 안쪽 박스 */
+.profilDetail{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 496px;
+  height: 266px;
+}
+
+/* 챔피언 사진 박스 */
+.champion{
+  height: 40%;
+  overflow: hidden;
+}
+
+/* 챔피언 사진 */
+.champion img{
+  width: 100%;
+  object-fit: cover;
+}
+
+/* 정보 박스 */
+.profilInfoDiv{
+  height: 60%;
+  background-color: rgb(0, 4, 25);
+}
+
+/* 랭크 아이콘 박스 */
+.rank{
+  width: 30%;
+  height: 70%;
+  float: left;
+}
+
+/* 랭크 아이콘 */
+.rank img{
+  width: 100%;
+  object-fit: cover;
+}
+
+/* 닉네임, 정보 */
+.profilInfo{
+  padding: 5px;
+  width: 60%;
+  height: 70%;
+  float: left;
+}
+
+.profilState{ 
+  width: 100%;
+  height: 20%;
+  border-top: 0.5px solid rgba(192, 188, 170, 0.381);
+  color: green;
+  float: left;
+  display: flex;
+}
+
+.profilState span{ 
+  font-size: 16px;
+  margin-left: 10%;
+} 
+
+/* 정보 박스 안쪽 글자*/
+.profilInfoDiv .nickName:nth-of-type(1){
+  font-size: 27px;
+}
+
+.profilInfoDiv .nickName:nth-of-type(2){
+  color: rgb(80, 80, 80);
+}
+
+/* 커뮤니티 세부 ================================================== */
+
 
 /* 창 조절 */
 .setting{
   position: absolute;
-  top: 5%;
+  top: 8%;
   right: 0%;
 }
 
 .setting a{
-  letter-spacing: 23px;
-  font-size: 16px;
+  letter-spacing: 20px;
+  font-size: 14px;
 }
 
 /* 프로필 사진 */
@@ -559,16 +657,6 @@ text textPath{
   clip-path: circle(50% at 50% 50%);
 }
 
-프로필 상세
-.profilDetail .allEdge{
-  position: absolute;
-  top: 0;
-  left: -200%;
-  width: 500px;
-  height: 300px;
-  z-index: 1;
-}
-
 /* 프로필 사진 자리 */
 .commuEdge4{
   position: absolute;
@@ -580,6 +668,12 @@ text textPath{
   height: 54px;
   clip-path: circle(50% at 50% 50%);
   background-color: rgb(30, 30, 30);
+}
+
+.commuEdge4 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* 레벨 테두리 */
@@ -617,7 +711,7 @@ text textPath{
   left: 65%;
   transform: translate(-50%,0%);
   width: 60%;
-  height: 100%;
+  height: 60%;
   float: left;
 }
 
@@ -634,18 +728,51 @@ text textPath{
 }
 
 
-/* 커뮤니티 */
-.commuKategorie{
+/* 커뮤니티 카테고리*/
+.commuKategorieDiv{
+  position: relative;
   height: 4%;
-  margin-left: 10px;
+  width: 200%;
+  overflow: hidden;
+}
+
+/* 움직이는 커뮤니티 */
+.commuKategorie{
+  position: absolute;
+  top: 40%;
+  left: 51%;
+  /* left: 0%; */
+  transform: translate(-50%, -50%);
+  height: 90%;
+  width: 100%;
+  transition: 0.5s;
+}
+
+/* 돋보기 */
+.fa-magnifying-glass{
+  position: absolute;
+  top: 61.5%;
+  left: 43%;
+  transform: translate(0,-50%);
+  transition: 0.5s;
+
+}
+
+.cFilter{
+  left: 0%;
+}
+
+.gFilter{
+  left: 52.5%;
 }
 
 .commuKategorie span{
   font-size: 16px;
   display: inline-block;
-  width: 40%;
+  width: 20%;
   height: 100%;
   line-height:35px;
+  margin-left: 10px;
 }
 
 .commuKategorie a{
@@ -653,6 +780,20 @@ text textPath{
   display: inline-block;
   margin: 0 7px;
 }
+
+.commuKategorie input{
+  width: 43%;
+  height: 100%;
+
+  font-size: 16px;
+  display: inline-block;
+  margin-left: 29px;
+  background-color: rgb(8, 13, 39);
+  border: 1px solid rgb(200, 190, 140);
+  padding-left: 6%;
+  outline: none;
+}
+
 
 /* 친구들 */
 .commuContentDiv{
@@ -914,12 +1055,16 @@ text textPath{
 
 /* 친구 기본색 */
 .commuContentDiv .state .gold{
-  color:  rgb(70, 70, 70);;
+  color:  rgb(70, 70, 70);
 }
 
 /* 글자 색 */
 .gold{
   color: rgb(200, 190, 140);
+}
+
+.nickName{
+  color:rgb(255, 249, 222)
 }
 
 div .light{

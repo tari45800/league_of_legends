@@ -10,6 +10,7 @@
 
   <script src="https://kit.fontawesome.com/dca238fc5f.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../css/style2.css">
+  <link rel="stylesheet" href="../css/style3.css">
   <script src="../js/jquery-3.6.0.js"></script>
   <script>
 
@@ -32,9 +33,48 @@
       // ==================================================
 
 
+      //클릭시 세팅창 보이기
+      $('.profil').click(function(){
+        $('.profilSetting > .allEdge').css({'display':'block'})
+      });
 
+      //클릭시 휘장 아이콘 변경
+      $('.iconsDiv .allEdge').click(function(){
+        var src = $(this).find('img').attr('src');
+        $('.iconEdge img').attr('src',src)
+      })
+
+      //클릭시 메인 아이콘 변경 및 세팅창 닫기
+      $('.iconSetting .gold i').click(function(){
+        var src = $('.iconEdge img').attr('src')
+        $('.commuEdge4 img').attr('src',src)
+        $('.profilSetting > .allEdge').css({'display':'none'})
+      })
+
+     // ==================================================
+     
+     //검색창 움직이기
+     $('.fa-magnifying-glass').click(function(){
+        $(this).toggleClass('gFilter');
+        $('.commuKategorie').toggleClass('cFilter');
+      });
+
+     // ==================================================
+
+     $('.fa-folder-plus').click(function(){
+        $('.commuKategorie').addClass('cFilter');
+        $('.commuKategorie input').attr('placeholder','폴더 이름');
+                
+        $('.client').click(function(){
+        $('.commuKategorie').removeClass('cFilter');
+      });
+      
+
+      
     })
 
+
+    
   </script>
 
 
@@ -153,6 +193,60 @@
       </div>
 
 
+      <!-- 아이콘 세팅 -->
+      <div class="profilSetting">
+        <div class="allEdge">
+          <div class="profilSettingDetail">
+
+            <div class="curtain">
+              <div class="iconEdge">
+                <img src="../img/main1.jpg" alt="">
+              </div>
+            </div>
+
+            <div class="iconSetting">
+              <a href="#" class="gold"><i class="fa-sharp fa-solid fa-xmark"></i></a>
+              <div>개인 설정 맞춤화</div>  
+              <a href="">아이콘</a>
+              <a href="">테두리</a>
+              <a href="">토큰</a>
+              <a href="">칭호</a>
+              <a href="">휘장</a>
+              <input type="text">
+            </div>
+
+            <div class="iconsDiv">
+              <div>2022 획득</div>
+
+
+              <div class="allEdge">
+                <div class="icons"><img src="../img/main1.jpg" alt=""></div>
+              </div>
+              <div class="allEdge">
+                <div class="icons"><img src="../img/main2.jpg" alt=""></div>
+              </div>
+              <div class="allEdge">
+                <div class="icons"><img src="../img/main3.jpg" alt=""></div>
+              </div>
+              <div class="allEdge">
+                <div class="icons"><img src="../img/main4.jpg" alt=""></div>
+              </div>
+              <div class="allEdge">
+                <div class="icons"><img src="../img/main5.jpg" alt=""></div>
+              </div>
+              <div class="allEdge">
+                <div class="icons"><img src="../img/main6.jpg" alt=""></div>
+              </div>
+              <div class="allEdge">
+                <div class="icons"><img src="../img/main1.jpg" alt=""></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
       <!-- 메인 컨텐트 -->
       <div class="main">
         <div class="homeKategorie">
@@ -218,18 +312,39 @@
             <div class="allEdge"></div>
             <div class="commuEdge2"></div>
             <div class="allEdge"></div>
-            <div class="commuEdge4"></div>
+            <div class="commuEdge4">
+              <img src="../img/main1.jpg" alt="">
+            </div>
             <div class="allEdge"></div>
             <div class="level2 gold">173</div>
           </div>
 
-          <div class="profilDetail">
-            <div class="allEdge"></div>
+          <div class="profilDetailDiv">
+            <div class="allEdge">
+              <div class="profilDetail">
+                <div class="champion"><img src="../img/mainImg.jpg" alt=""></div>
+                <div class="profilInfoDiv">
+
+                  <div class="rank"><img src="../img/big_icon.png" alt=""></div>
+                  
+                  <div class="profilInfo">
+                    <div class="nickName">대장군 제갈공명</div>
+                    <div class="nickName">대장군 제갈공명 #KR11</div>
+                    <div class="nickName">골드III 전략적 팀 전투</div>
+                  </div>
+                  
+                  <div class="profilState">
+                    <span>온라인</span>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="state">
               <div class="stateDiv">
-              <div class="gold">대장군 제갈공명</div><br>
+              <div class="nickName">대장군 제갈공명</div><br>
               <div class="gold">인터벌</div>
               <div class="gold"><i class="fa-solid fa-bell"></i></div>
             </div>
@@ -237,12 +352,15 @@
 
         </div>
 
-        <div class="commuKategorie">
-          <span class="gold" >커뮤니티</span>
-          <a class="gold" href=""><i class="fa-sharp fa-solid fa-user-plus"></i></a>
-          <a class="gold" href=""><i class="fa-solid fa-folder-plus"></i></a>
-          <a class="gold" href=""><i class="fa-sharp fa-solid fa-user-plus"></i></a>
-          <a class="gold" href=""><i class="fa-sharp fa-solid fa-magnifying-glass"></i></i></a>
+        <div class="commuKategorieDiv">
+          <div class="commuKategorie">
+            <span class="gold" >커뮤니티</span>
+            <a class="gold"><i class="fa-sharp fa-solid fa-user-plus"></i></a>
+            <a class="gold"><i class="fa-solid fa-folder-plus"></i></a>
+            <a class="gold"><i class="fa-solid fa-bars"></i></a>
+            <a class="gold"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
+            <input class="gold" type="text" placeholder="필터">
+            </div>
         </div>
 
         <div class="menu gold"><i class="fa-sharp fa-solid fa-caret-right"></i> 일반</div>
@@ -255,7 +373,7 @@
             </div>
 
             <div class="state">
-                <div class="stateDiv">
+              <div class="stateDiv">
                 <div class="gold">Captain Judy</div><br>
                 <div class="gold">인터벌</div>
               </div>
