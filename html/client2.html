@@ -65,11 +65,14 @@
         $('.commuKategorie').addClass('cFilter');
         $('.commuKategorie input').attr('placeholder','폴더 이름');
                 
-        $('.client').click(function(){
-        $('.commuKategorie').removeClass('cFilter');
       });
       
-
+      $('.client').click(function(){
+        if($('.commuKategorie').is('.cFilter')){
+          alert('gd')
+          $('commuKategorie').addClass('fFilter');
+        }
+      })
       
     })
 
