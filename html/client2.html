@@ -57,25 +57,62 @@
      $('.fa-magnifying-glass').click(function(){
         $(this).toggleClass('gFilter');
         $('.commuKategorie').toggleClass('cFilter');
+        $('.commuKategorie input').attr('placeholder','필터');
       });
 
      // ==================================================
 
+     //폴더창 움직이기
      $('.fa-folder-plus').click(function(){
-        $('.commuKategorie').addClass('cFilter');
+        $('.commuKategorie').addClass('cFilter2');
         $('.commuKategorie input').attr('placeholder','폴더 이름');
-                
-      });
-      
-      $('.client').click(function(){
-        if($('.commuKategorie').is('.cFilter')){
-          alert('gd')
-          $('commuKategorie').addClass('fFilter');
-        }
-      })
-      
-    })
+        $('.commuKategorie input').css({'padding-left':'2%', 'padding-right':'4%'})
+        //$('.commuKategorie input').focus();
+     });
 
+      
+      //형제요소를 클릭시 @@@@@수정필요@@@@@
+      $('.commuKategorieDiv').siblings().click(function(){
+        $('.commuKategorie').removeClass('cFilter2');
+      })
+
+      
+     // ==================================================
+
+      //폴더 추가
+      $('.commuKategorie input').keydown(function (key) {
+          if (key.keyCode == 13) {
+           
+            if($('.folder .menu').length < 5){
+              var folder = $(this).val()
+              $('.commuContentDiv .folder').prepend('<div class="menu gold"><i class="fa-sharp fa-solid fa-caret-right">'+ ' ' + folder+'</i></div>');
+
+              $('.commuKategorie input').val('')
+              $('.commuKategorie input').attr('placeholder','폴더가 생성되었습니다.');
+            } else {
+              $('.commuKategorie input').val('')
+              $('.commuKategorie input').attr('placeholder','폴더를 더 이상 생성할 수 없습니다.');
+            }
+          }
+
+
+
+      });
+
+     // ==================================================
+    
+     //폴더 토글
+     $('.folder .menu').click(function(){
+      $('.commuContent').toggle()
+     })
+
+     $('.folder .menu').click(function(){
+      $('.fa-caret-right').toggleClass('turn')
+     })
+     // ==================================================
+     // ==================================================
+
+    })
 
     
   </script>
@@ -366,9 +403,15 @@
             </div>
         </div>
 
-        <div class="menu gold"><i class="fa-sharp fa-solid fa-caret-right"></i> 일반</div>
 
         <div class="commuContentDiv">
+
+          
+        <div class="folder">
+          <div class="menu gold"><i class="fa-sharp fa-solid fa-caret-right"></i> 일반</div>
+        </div>
+
+
           <div class="commuContent">
             <div class="profil">
               <div class="allEdge"></div>
@@ -382,6 +425,8 @@
               </div>
             </div>
           </div>
+
+
         </div>
 
         <div class="commuService">

@@ -758,7 +758,12 @@ text textPath{
 
 }
 
+
 .cFilter{
+  left: 0%;
+}
+
+.cFilter2{
   left: 0%;
 }
 
@@ -766,6 +771,7 @@ text textPath{
   left: 43%;
 }
 
+/* 돋보기 */
 .gFilter{
   left: 52.5%;
 }
@@ -801,13 +807,13 @@ text textPath{
 
 /* 친구들 */
 .commuContentDiv{
-  height: 76%;
+  height: 80%;
 }
 
 /* 친구 */
 .commuContent{
   position: relative;
-  height: 8%;
+  height: 10%;
   cursor: pointer;
 
 }
@@ -817,14 +823,13 @@ text textPath{
 }
 
 .commuContent .profil .allEdge{
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
 }
 
-/* 게이지 바 */
 .commuContent .profil .commuEdge2{
-  width: 31px;
-  height: 31px;
+  width: 35px;
+  height: 35px;
 }
 
 .commuContent .state{
@@ -840,7 +845,12 @@ text textPath{
 .commuContent .stateDiv div{
   font-size: 17px;
   display: inline-block;
+  margin-left: 5px;
   margin-bottom: 0px;
+ }
+
+ .commuContent .stateDiv div:nth-of-type(1){
+  margin-top: 10px;
  }
 
 
@@ -848,9 +858,13 @@ text textPath{
   height: 4%;
   line-height:35px;
   font-size: 16px;
-  margin-left: 10px;
+  padding-left: 10px;
   word-spacing: 7px;
   cursor: pointer;
+}
+
+.menu i{
+  margin-right: 3px;
 }
 
 /* 커뮤니티 끝단 */
