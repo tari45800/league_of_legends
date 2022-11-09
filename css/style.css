@@ -22,7 +22,7 @@ a{
 /* 전체박스 */
 .client{
   background-color: #fff;
-  opacity: 0;
+  display: none;
   position: absolute;
   top: 50%;
   left: 50%;

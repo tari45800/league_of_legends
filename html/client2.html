@@ -4,118 +4,119 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+
+<title>client</title>
 
 <!-- ================================================== -->
 
-  <script src="https://kit.fontawesome.com/dca238fc5f.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../css/style2.css">
-  <link rel="stylesheet" href="../css/style3.css">
-  <script src="../js/jquery-3.6.0.js"></script>
-  <script>
+<script src="https://kit.fontawesome.com/dca238fc5f.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../css/style2.css">
+<link rel="stylesheet" href="../css/style3.css">
+<script src="../js/jquery-3.6.0.js"></script>
+<script>
 
-    $(function(){
-      
-      // ==================================================
-
-      //카테고리 빛
-      $('.pageKategorie div, .infoKategorie div').mouseenter(function(){
-        $(this).find('.light').css({'opacity':'0.5'});
-        $(this).find('.gold').css({'color':'rgb(255, 248, 210)'});
-      }) 
-
-      $('.pageKategorie div, .infoKategorie div').mouseleave(function(){
-        $(this).find('.light').css({'opacity':'0'});
-        $(this).find('.gold').css({'color':'rgb(200, 190, 140)'});
-      })
-      
-
-      // ==================================================
-
-
-      //클릭시 세팅창 보이기
-      $('.profil').click(function(){
-        $('.profilSetting > .allEdge').css({'display':'block'})
-      });
-
-      //클릭시 휘장 아이콘 변경
-      $('.iconsDiv .allEdge').click(function(){
-        var src = $(this).find('img').attr('src');
-        $('.iconEdge img').attr('src',src)
-      })
-
-      //클릭시 메인 아이콘 변경 및 세팅창 닫기
-      $('.iconSetting .gold i').click(function(){
-        var src = $('.iconEdge img').attr('src')
-        $('.commuEdge4 img').attr('src',src)
-        $('.profilSetting > .allEdge').css({'display':'none'})
-      })
-
-     // ==================================================
-     
-     //검색창 움직이기
-     $('.fa-magnifying-glass').click(function(){
-        $(this).toggleClass('gFilter');
-        $('.commuKategorie').toggleClass('cFilter');
-        $('.commuKategorie input').attr('placeholder','필터');
-      });
-
-     // ==================================================
-
-     //폴더창 움직이기
-     $('.fa-folder-plus').click(function(){
-        $('.commuKategorie').addClass('cFilter2');
-        $('.commuKategorie input').attr('placeholder','폴더 이름');
-        $('.commuKategorie input').css({'padding-left':'2%', 'padding-right':'4%'})
-        //$('.commuKategorie input').focus();
-     });
-
-      
-      //형제요소를 클릭시 @@@@@수정필요@@@@@
-      $('.commuKategorieDiv').siblings().click(function(){
-        $('.commuKategorie').removeClass('cFilter2');
-      })
-
-      
-     // ==================================================
-
-      //폴더 추가
-      $('.commuKategorie input').keydown(function (key) {
-          if (key.keyCode == 13) {
-           
-            if($('.folder .menu').length < 5){
-              var folder = $(this).val()
-              $('.commuContentDiv .folder').prepend('<div class="menu gold"><i class="fa-sharp fa-solid fa-caret-right">'+ ' ' + folder+'</i></div>');
-
-              $('.commuKategorie input').val('')
-              $('.commuKategorie input').attr('placeholder','폴더가 생성되었습니다.');
-            } else {
-              $('.commuKategorie input').val('')
-              $('.commuKategorie input').attr('placeholder','폴더를 더 이상 생성할 수 없습니다.');
-            }
-          }
-
-
-
-      });
-
-     // ==================================================
+  $(function(){
     
-     //폴더 토글
-     $('.folder .menu').click(function(){
-      $('.commuContent').toggle()
-     })
+    // ==================================================
 
-     $('.folder .menu').click(function(){
-      $('.fa-caret-right').toggleClass('turn')
-     })
-     // ==================================================
-     // ==================================================
+    //카테고리 빛
+    $('.pageKategorie div, .infoKategorie div').mouseenter(function(){
+      $(this).find('.light').css({'opacity':'0.5'});
+      $(this).find('.gold').css({'color':'rgb(255, 248, 210)'});
+    }) 
 
+    $('.pageKategorie div, .infoKategorie div').mouseleave(function(){
+      $(this).find('.light').css({'opacity':'0'});
+      $(this).find('.gold').css({'color':'rgb(200, 190, 140)'});
+    })
+    
+
+    // ==================================================
+
+
+    //클릭시 세팅창 보이기
+    $('.profil').click(function(){
+      $('.profilSetting > .allEdge').css({'display':'block'})
+    });
+
+    //클릭시 휘장 아이콘 변경
+    $('.iconsDiv .allEdge').click(function(){
+      var src = $(this).find('img').attr('src');
+      $('.iconEdge img').attr('src',src)
+    })
+
+    //클릭시 메인 아이콘 변경 및 세팅창 닫기
+    $('.iconSetting .gold i').click(function(){
+      var src = $('.iconEdge img').attr('src')
+      $('.commuEdge4 img').attr('src',src)
+      $('.profilSetting > .allEdge').css({'display':'none'})
+    })
+
+   // ==================================================
+   
+   //검색창 움직이기
+   $('.fa-magnifying-glass').click(function(){
+      $(this).toggleClass('gFilter');
+      $('.commuKategorie').toggleClass('cFilter');
+      $('.commuKategorie input').attr('placeholder','필터');
+    });
+
+   // ==================================================
+
+   //폴더창 움직이기
+   $('.fa-folder-plus').click(function(){
+      $('.commuKategorie').addClass('cFilter2');
+      $('.commuKategorie input').attr('placeholder','폴더 이름');
+      $('.commuKategorie input').css({'padding-left':'2%', 'padding-right':'4%'})
+      //$('.commuKategorie input').focus();
+   });
+
+    
+    //형제요소를 클릭시 @@@@@수정필요@@@@@
+    $('.commuKategorieDiv').siblings().click(function(){
+      $('.commuKategorie').removeClass('cFilter2');
     })
 
     
-  </script>
+   // ==================================================
+
+    //폴더 추가
+    $('.commuKategorie input').keydown(function (key) {
+        if (key.keyCode == 13) {
+         
+          if($('.folder .menu').length < 5){
+            var folder = $(this).val()
+            $('.commuContentDiv .folder').prepend('<div class="menu gold"><i class="fa-sharp fa-solid fa-caret-right">'+ ' ' + folder+'</i></div>');
+
+            $('.commuKategorie input').val('')
+            $('.commuKategorie input').attr('placeholder','폴더가 생성되었습니다.');
+          } else {
+            $('.commuKategorie input').val('')
+            $('.commuKategorie input').attr('placeholder','폴더를 더 이상 생성할 수 없습니다.');
+          }
+        }
+
+
+
+    });
+
+   // ==================================================
+  
+   //폴더 토글
+   $('.folder .menu').click(function(){
+    $('.commuContent').toggle()
+   })
+
+   $('.folder .menu').click(function(){
+    $('.fa-caret-right').toggleClass('turn')
+   })
+   // ==================================================
+   // ==================================================
+
+  })
+
+  
+</script>
 
 
 <!-- ================================================== -->
@@ -124,334 +125,336 @@
 
 <body style="background-image: url(../img/window.jpg);">
 
-  <div class="client">
-   
-    <!-- 로딩1 -->
-    <div class="loding1">
-      <img src="../img/league.png" alt="">
+<div class="client">
+ 
+  <!-- 로딩1 -->
+  <div class="loding1">
+    <img src="../img/league.png" alt="">
+  </div>
+  
+  <!-- 로딩2 -->
+  <img class="loding2" src="../img/big_icon.png" alt="">
+
+  <!-- 로딩3 -->
+  <div class="loding3">
+    <img src="../img/big_icon.png" alt="">
+    <span>로딩 중</span>
+    <div class="progressbar">
+      <div></div>
     </div>
+
+    <div class="circle"></div>
+    <div class="horizon"></div>
+
+    <div class="ii">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-175 -250 500 500">
+
+        <defs>
+          <path 
+          d="
+          M 0 0
+          a 75,75 0 1,0 150,0
+          a 75,75 0 1,0 -150,0
+          "
+          id="textcircle_top">
+          </path>
     
-    <!-- 로딩2 -->
-    <img class="loding2" src="../img/big_icon.png" alt="">
+        </defs>
+    
+          <text dy="127" textLength="501">
+    
+            <textPath xlink:href="#textcircle_top">IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+            </textPath>
+        
+          </text>
+          
+      </svg>
+    </div>
+  </div>
 
-    <!-- 로딩3 -->
-    <div class="loding3">
-      <img src="../img/big_icon.png" alt="">
-      <span>로딩 중</span>
-      <div class="progressbar">
-        <div></div>
+  <div class="loding4">
+    <img alt="주의사항" src="../img/precautions.png">
+  </div>	
+
+  <!-- 메인 페이지 -->
+  <div class="mainPage">
+    <div class="mainBorder"></div>
+    <img class="backGd" src="../img/mainImg2.jpg" alt="">
+
+    <!-- 카테고리 -->
+    <div class="kategorie">
+
+      <div class="gameKategorie">
+        <img src="../img/icon.png" alt="">
+        <div class="button">
+          <div class="edge"></div>
+          <div class="flowEdge">
+            <div class="flowCircle"></div>
+            <div class="buttonCircle"></div>
+            <div class="flow"></div>
+            <div class="button">게임 시작</div>
+          </div>
+        </div>
       </div>
 
-      <div class="circle"></div>
-      <div class="horizon"></div>
+      <div class="pageKategorie">
+        <div><a class="gold" href="">홈</a>
+          <div class="light"></div></div>
+        <div><a class="gold" href="">전략적 팀 전투</a>
+          <div class="light"></div></div>
+        <div><a class="gold" href="">격전</a>
+          <div class="light"></div></div>
 
-      <div class="ii">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-175 -250 500 500">
+      </div>
 
-          <defs>
-            <path 
-            d="
-            M 0 0
-            a 75,75 0 1,0 150,0
-            a 75,75 0 1,0 -150,0
-            "
-            id="textcircle_top">
-            </path>
-      
-          </defs>
-      
-            <text dy="127" textLength="501">
-      
-              <textPath xlink:href="#textcircle_top">IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
-              </textPath>
+      <div class="infoKategorie">
+
+        <div><a class="gold" href="">
+          <i class="fa-solid fa-user"></i></a>
+          <div class="light"></div></div>
           
-            </text>
-            
-        </svg>
+        <div><a class="gold" href="">            
+            <i class="fa-sharp fa-solid fa-briefcase"></i></a>
+          <div class="light"></div></div>
+
+        <div><a class="gold" href="">
+          <i class="fa-sharp fa-solid fa-hammer"></i></a>
+          <div class="light"></div></div>
+
+        <div><a class="gold" href="">
+          <i class="fa-sharp fa-solid fa-coins"></i></a>
+          <div class="light"></div></div>
+
+        <div class="cash">
+          <span class="gold">
+            <i class="fa-sharp fa-solid fa-gem"></i> 64<br>
+            <i class="fa-sharp fa-solid fa-diamond"></i> 604
+          </span>
+        </div>
+      </div>
+      
+    </div>
+
+
+    <!-- 아이콘 세팅 -->
+    <div class="profilSetting">
+      <div class="allEdge">
+        <div class="profilSettingDetail">
+
+          <div class="curtain">
+            <div class="iconEdge">
+              <img src="../img/main1.jpg" alt="">
+            </div>
+          </div>
+
+          <div class="iconSetting">
+            <a href="#" class="gold"><i class="fa-sharp fa-solid fa-xmark"></i></a>
+            <div>개인 설정 맞춤화</div>  
+            <a href="">아이콘</a>
+            <a href="">테두리</a>
+            <a href="">토큰</a>
+            <a href="">칭호</a>
+            <a href="">휘장</a>
+            <input type="text">
+          </div>
+
+          <div class="iconsDiv">
+            <div>2022 획득</div>
+
+
+            <div class="allEdge">
+              <div class="icons"><img src="../img/main1.jpg" alt=""></div>
+            </div>
+            <div class="allEdge">
+              <div class="icons"><img src="../img/main2.jpg" alt=""></div>
+            </div>
+            <div class="allEdge">
+              <div class="icons"><img src="../img/main3.jpg" alt=""></div>
+            </div>
+            <div class="allEdge">
+              <div class="icons"><img src="../img/main4.jpg" alt=""></div>
+            </div>
+            <div class="allEdge">
+              <div class="icons"><img src="../img/main5.jpg" alt=""></div>
+            </div>
+            <div class="allEdge">
+              <div class="icons"><img src="../img/main6.jpg" alt=""></div>
+            </div>
+            <div class="allEdge">
+              <div class="icons"><img src="../img/main1.jpg" alt=""></div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 
 
-
-    <!-- 메인 페이지 -->
-    <div class="mainPage">
-      <div class="mainBorder"></div>
-      <img class="backGd" src="../img/mainImg2.jpg" alt="">
-
-      <!-- 카테고리 -->
-      <div class="kategorie">
-
-        <div class="gameKategorie">
-          <img src="../img/icon.png" alt="">
-          <div class="button">
-            <div class="edge"></div>
-            <div class="flowEdge">
-              <div class="flowCircle"></div>
-              <div class="buttonCircle"></div>
-              <div class="flow"></div>
-              <div class="button">게임 시작</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pageKategorie">
-          <div><a class="gold" href="">홈</a>
-            <div class="light"></div></div>
-          <div><a class="gold" href="">전략적 팀 전투</a>
-            <div class="light"></div></div>
-          <div><a class="gold" href="">격전</a>
-            <div class="light"></div></div>
-
-        </div>
-
-        <div class="infoKategorie">
-
-          <div><a class="gold" href="">
-            <i class="fa-solid fa-user"></i></a>
-            <div class="light"></div></div>
-            
-          <div><a class="gold" href="">            
-              <i class="fa-sharp fa-solid fa-briefcase"></i></a>
-            <div class="light"></div></div>
-
-          <div><a class="gold" href="">
-            <i class="fa-sharp fa-solid fa-hammer"></i></a>
-            <div class="light"></div></div>
-
-          <div><a class="gold" href="">
-            <i class="fa-sharp fa-solid fa-coins"></i></a>
-            <div class="light"></div></div>
-
-          <div class="cash">
-            <span class="gold">
-              <i class="fa-sharp fa-solid fa-gem"></i> 64<br>
-              <i class="fa-sharp fa-solid fa-diamond"></i> 604
-            </span>
-          </div>
-        </div>
-        
+    <!-- 메인 컨텐트 -->
+    <div class="main">
+      <div class="homeKategorie">
+        <div><a  class="gold" href="">개요</a></div>
+        <div><a  class="gold" href="">2022 월드 챔피언십</a></div>
+        <div><a  class="gold" href="">크산테</a></div>
+        <div><a  class="gold" href="">패치 노트</a></div>
+        <div><a  class="gold" href="">라이엇 스토어</a></div>
       </div>
 
-
-      <!-- 아이콘 세팅 -->
-      <div class="profilSetting">
+      <div class="mainInfo1">
+        <div class="mainInfo1Div">
+          <span class="gold">스킨 트레일러</span><br>
+          <span class="gold">2022 창공</span><br>
+          <span class="gold">이토록 아름다운 파괴라니...</span><br>
+          <div class="allEdge">
+            <button class="gold">지금 시청하기</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mainInfo2">
         <div class="allEdge">
-          <div class="profilSettingDetail">
-
-            <div class="curtain">
-              <div class="iconEdge">
-                <img src="../img/main1.jpg" alt="">
-              </div>
-            </div>
-
-            <div class="iconSetting">
-              <a href="#" class="gold"><i class="fa-sharp fa-solid fa-xmark"></i></a>
-              <div>개인 설정 맞춤화</div>  
-              <a href="">아이콘</a>
-              <a href="">테두리</a>
-              <a href="">토큰</a>
-              <a href="">칭호</a>
-              <a href="">휘장</a>
-              <input type="text">
-            </div>
-
-            <div class="iconsDiv">
-              <div>2022 획득</div>
-
-
-              <div class="allEdge">
-                <div class="icons"><img src="../img/main1.jpg" alt=""></div>
-              </div>
-              <div class="allEdge">
-                <div class="icons"><img src="../img/main2.jpg" alt=""></div>
-              </div>
-              <div class="allEdge">
-                <div class="icons"><img src="../img/main3.jpg" alt=""></div>
-              </div>
-              <div class="allEdge">
-                <div class="icons"><img src="../img/main4.jpg" alt=""></div>
-              </div>
-              <div class="allEdge">
-                <div class="icons"><img src="../img/main5.jpg" alt=""></div>
-              </div>
-              <div class="allEdge">
-                <div class="icons"><img src="../img/main6.jpg" alt=""></div>
-              </div>
-              <div class="allEdge">
-                <div class="icons"><img src="../img/main1.jpg" alt=""></div>
-              </div>
-            </div>
-          </div>
-
+          <img src="../img/mainVideo.png" alt="">
         </div>
       </div>
 
-
-      <!-- 메인 컨텐트 -->
-      <div class="main">
-        <div class="homeKategorie">
-          <div><a  class="gold" href="">개요</a></div>
-          <div><a  class="gold" href="">2022 월드 챔피언십</a></div>
-          <div><a  class="gold" href="">크산테</a></div>
-          <div><a  class="gold" href="">패치 노트</a></div>
-          <div><a  class="gold" href="">라이엇 스토어</a></div>
+      <div class="subInfo">
+        <div class="allEdge">
+          <img src="../img/main1.jpg" alt="">
+          <a class="gold" href="">크산테가 읽어주는 12.21 패치노트</a> 
         </div>
-
-        <div class="mainInfo1">
-          <div class="mainInfo1Div">
-            <span class="gold">스킨 트레일러</span><br>
-            <span class="gold">2022 창공</span><br>
-            <span class="gold">이토록 아름다운 파괴라니...</span><br>
-            <div class="allEdge">
-              <button class="gold">지금 시청하기</button>
-            </div>
-          </div>
+        <div class="allEdge">
+          <img src="../img/main2.jpg" alt="">
+          <a class="gold" href="">2022 렝크 보상 안내</a> 
         </div>
         
-        <div class="mainInfo2">
-          <div class="allEdge">
-            <img src="../img/mainVideo.png" alt="">
-          </div>
+        <div class="allEdge">
+          <img src="../img/main3.jpg" alt="">
+          <a class="gold" href="">우주 그루브 제작기</a> 
         </div>
 
-        <div class="subInfo">
-          <div class="allEdge">
+        <div class="allEdge">
+          <img src="../img/main4.jpg" alt="">
+          <a class="gold" href="">창공 게임플레이 트레일러</a> 
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 커뮤니티 -->
+    <div class="community">
+      <div class="commuinfo">
+
+        <div class="setting">
+          <a href="" class="gold"><i class="fa-solid fa-question"></i></a>
+          <a href="" class="gold">_</a>
+          <a href="" class="gold"><i class="fa-solid fa-gear"></i></a>
+          <a href="" class="gold"><i class="fa-sharp fa-solid fa-xmark"></i></a>
+       </div>
+
+        <div class="profil">
+          <div class="allEdge"></div>
+          <div class="commuEdge2"></div>
+          <div class="allEdge"></div>
+          <div class="commuEdge4">
             <img src="../img/main1.jpg" alt="">
-            <a class="gold" href="">크산테가 읽어주는 12.21 패치노트</a> 
           </div>
-          <div class="allEdge">
-            <img src="../img/main2.jpg" alt="">
-            <a class="gold" href="">2022 렝크 보상 안내</a> 
-          </div>
-          
-          <div class="allEdge">
-            <img src="../img/main3.jpg" alt="">
-            <a class="gold" href="">우주 그루브 제작기</a> 
-          </div>
+          <div class="allEdge"></div>
+          <div class="level2 gold">173</div>
+        </div>
 
+        <div class="profilDetailDiv">
           <div class="allEdge">
-            <img src="../img/main4.jpg" alt="">
-            <a class="gold" href="">창공 게임플레이 트레일러</a> 
+            <div class="profilDetail">
+              <div class="champion"><img src="../img/mainImg.jpg" alt=""></div>
+              <div class="profilInfoDiv">
+
+                <div class="rank"><img src="../img/big_icon.png" alt=""></div>
+                
+                <div class="profilInfo">
+                  <div class="nickName">대장군 제갈공명</div>
+                  <div class="nickName">대장군 제갈공명 #KR11</div>
+                  <div class="nickName">골드III 전략적 팀 전투</div>
+                </div>
+                
+                <div class="profilState">
+                  <span>온라인</span>
+                </div>
+                
+              </div>
+            </div>
           </div>
         </div>
+
+        <div class="state">
+            <div class="stateDiv">
+            <div class="nickName">대장군 제갈공명</div><br>
+            <div class="gold">인터벌</div>
+            <div class="gold"><i class="fa-solid fa-bell"></i></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="commuKategorieDiv">
+        <div class="commuKategorie">
+          <span class="gold" >커뮤니티</span>
+          <a class="gold"><i class="fa-sharp fa-solid fa-user-plus"></i></a>
+          <a class="gold"><i class="fa-solid fa-folder-plus"></i></a>
+          <a class="gold"><i class="fa-solid fa-bars"></i></a>
+          <a class="gold"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
+          <input class="gold" type="text" placeholder="필터">
+          </div>
       </div>
 
 
-      <!-- 커뮤니티 -->
-      <div class="community">
-        <div class="commuinfo">
+      <div class="commuContentDiv">
 
-          <div class="setting">
-            <a href="" class="gold"><i class="fa-solid fa-question"></i></a>
-            <a href="" class="gold">_</a>
-            <a href="" class="gold"><i class="fa-solid fa-gear"></i></a>
-            <a href="" class="gold"><i class="fa-sharp fa-solid fa-xmark"></i></a>
-         </div>
+        
+      <div class="folder">
+        <div class="menu gold"><i class="fa-sharp fa-solid fa-caret-right"></i> 일반</div>
+      </div>
 
+
+        <div class="commuContent">
           <div class="profil">
             <div class="allEdge"></div>
             <div class="commuEdge2"></div>
-            <div class="allEdge"></div>
-            <div class="commuEdge4">
-              <img src="../img/main1.jpg" alt="">
-            </div>
-            <div class="allEdge"></div>
-            <div class="level2 gold">173</div>
-          </div>
-
-          <div class="profilDetailDiv">
-            <div class="allEdge">
-              <div class="profilDetail">
-                <div class="champion"><img src="../img/mainImg.jpg" alt=""></div>
-                <div class="profilInfoDiv">
-
-                  <div class="rank"><img src="../img/big_icon.png" alt=""></div>
-                  
-                  <div class="profilInfo">
-                    <div class="nickName">대장군 제갈공명</div>
-                    <div class="nickName">대장군 제갈공명 #KR11</div>
-                    <div class="nickName">골드III 전략적 팀 전투</div>
-                  </div>
-                  
-                  <div class="profilState">
-                    <span>온라인</span>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
           </div>
 
           <div class="state">
-              <div class="stateDiv">
-              <div class="nickName">대장군 제갈공명</div><br>
+            <div class="stateDiv">
+              <div class="gold">Captain Judy</div><br>
               <div class="gold">인터벌</div>
-              <div class="gold"><i class="fa-solid fa-bell"></i></div>
             </div>
           </div>
-
-        </div>
-
-        <div class="commuKategorieDiv">
-          <div class="commuKategorie">
-            <span class="gold" >커뮤니티</span>
-            <a class="gold"><i class="fa-sharp fa-solid fa-user-plus"></i></a>
-            <a class="gold"><i class="fa-solid fa-folder-plus"></i></a>
-            <a class="gold"><i class="fa-solid fa-bars"></i></a>
-            <a class="gold"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
-            <input class="gold" type="text" placeholder="필터">
-            </div>
         </div>
 
 
-        <div class="commuContentDiv">
-
-          
-        <div class="folder">
-          <div class="menu gold"><i class="fa-sharp fa-solid fa-caret-right"></i> 일반</div>
-        </div>
-
-
-          <div class="commuContent">
-            <div class="profil">
-              <div class="allEdge"></div>
-              <div class="commuEdge2"></div>
-            </div>
-
-            <div class="state">
-              <div class="stateDiv">
-                <div class="gold">Captain Judy</div><br>
-                <div class="gold">인터벌</div>
-              </div>
-            </div>
-          </div>
-
-
-        </div>
-
-        <div class="commuService">
-          <div class="allEdge">
-           <a class="gold" href=""><i class="fa-solid fa-message"></i></a>
-          </div>
-
-          <div class="allEdge">
-            <a class="gold" href=""><i class="fa-solid fa-scroll"></i></a>
-          </div>
-
-          <div class="allEdge">
-            <a class="gold" href=""><i class="fa-solid fa-microphone"></i></a>
-          </div>
-
-          <span class="gold" href="">V12.25</span>
-
-          <div class="allEdge">
-            <a class="gold" href=""><i class="fa-solid fa-bug"></a>
-          </div>
-
-        </div>
       </div>
 
-  </div>
+      <div class="commuService">
+        <div class="allEdge">
+         <a class="gold" href=""><i class="fa-solid fa-message"></i></a>
+        </div>
+
+        <div class="allEdge">
+          <a class="gold" href=""><i class="fa-solid fa-scroll"></i></a>
+        </div>
+
+        <div class="allEdge">
+          <a class="gold" href=""><i class="fa-solid fa-microphone"></i></a>
+        </div>
+
+        <span class="gold" href="">V12.25</span>
+
+        <div class="allEdge">
+          <a class="gold" href=""><i class="fa-solid fa-bug"></a>
+        </div>
+
+      </div>
+    </div>
+
+</div>
 
 
 
