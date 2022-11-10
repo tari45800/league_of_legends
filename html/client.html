@@ -19,7 +19,7 @@
       // ==================================================
 
       //아이콘 클릭
-      $('.icon').click(function(){
+      $('.windowIcon').dblclick(function(){
         $('.client').css({"display":"block"})
       })
 
@@ -60,18 +60,26 @@
 
 </head>
 
-<body style="background-image: url(../img/window.jpg);">
+<body>
 
-  <img class="icon" src="../img/icon.png" alt="롤 아이콘" width="70px" height="70px" style="margin: 30px; cursor: pointer;">
+  <div class="blur">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <div class="windowIcon">
+    <img class="icon" src="../img/icon.png" alt="롤 아이콘" width="70px" height="70px" style="cursor: pointer;">
+    <span>league of legend</span>
+  </div>
 
   <div class="client">
 
     <div class="login">
 
- 
-
-      <img class="mainLogo" src="../img/riot.png" alt="라이엇 로고" width="150px">
-
+        <img class="mainLogo" src="../img/riot.png" alt="라이엇 로고" width="150px">
 
 
       <div class="loginContent">
