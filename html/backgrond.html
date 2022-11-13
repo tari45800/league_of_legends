@@ -11,6 +11,7 @@
   
     <script src="https://kit.fontawesome.com/dca238fc5f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/backStyle.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet"s href="../css/portFolioStyle.css">
     <script src="../js/jquery-3.6.0.js"></script>
     <script>
@@ -25,7 +26,7 @@
         })
 
         //어바웃미 폴더 닫기
-        $('.folderSetting span:nth-of-type(1)').click(function(){
+        $('.folderLeft .folderSetting span:nth-of-type(1)').click(function(){
           $('.backFolder').css({'display':'none'})
         })
         
@@ -35,6 +36,10 @@
           $('input[name="nav"]').eq(0).addClass("active");
         })
 
+        //어바웃미 폴더 닫기
+        $('.mainDiv .containerTop span:nth-of-type(1)').click(function(){
+          $('.mainDiv').css({'display':'none'})
+        })
 
         
         // ==================================================
@@ -98,6 +103,36 @@
           $('input[name=nav]').eq(num).prop("checked", true);
           $('input[name=nav]:checked').addClass("active");
         })
+          
+        // ==================================================
+
+        //아이콘 클릭
+        $('.lolIcon').dblclick(function(){
+          $('.client').css({"display":"block"})
+        })
+
+        // ==================================================
+
+        //로그인 폼 클릭
+        $('.loginContent input[type=text], .loginContent input[type=password]').click(function(){
+          $(this).css({"background-color": "white"})
+          $(this).siblings().css({"top":"5px", "left":"3%"})
+        })
+
+        //로그인 폼 포커스 아웃
+        $('.loginContent input[type=text], .loginContent input[type=password]').focusout(function(){
+
+          var val = $(this).val()
+          var id =  $('.loginContent input[type=text]').val()
+          var pass =  $('.loginContent input[type=password]').val()
+
+          if(val == ""){
+            $(this).siblings().css({"top":"18px", "left":"7%"})
+          } else if(id != "" && pass != ""){
+            $('.fa-arrow-right').css({'border':'none', 'background-color':'crimson', 'color':'white'})
+          }
+          $(this).css({"background-color": "#eee"})
+        })
       })
   
     </script>
@@ -107,7 +142,7 @@
   </head>
 <body>
   
-  <!-- ================================================== -->
+  <!-- 아이콘 ================================================== -->
 
   
   <!-- <div class="blur">
@@ -127,7 +162,7 @@
 
     <div class="windowIcon">
       <img class="icon" src="../img/icons/folder.png" alt="롤 아이콘">
-      <span>skills</span>
+      <span>이력서</span>
     </div>
 
   
@@ -169,37 +204,43 @@
 
     <div class="windowIcon">
     </div>
-
+  -->
     <div class="windowIcon">
-    </div> -->
+    </div>
 
   
-    <div class="windowIcon">
-      <img class="icon" src="../img/icons/Notion Setup 2.0.ico" alt="롤 아이콘">
-      <span>Notion</span>
-    </div>
+    <a href="https://meowing-ginger-32f.notion.site/MAIN-d5a0e516e6bd433e97f519eb7b655ad6" target="_blank">
+      <div class="windowIcon">
+        <img class="icon" src="../img/icons/Notion Setup 2.0.ico" alt="롤 아이콘">
+        <span>Notion</span>
+      </div>
+    </a>
     
     <div class="windowIcon">
-      <img class="icon" src="../img/icons/github.png" alt="롤 아이콘">
-      <span>github</span>
+      <a href="https://github.com/tari45800" target="_blank">
+        <img class="icon" src="../img/icons/github.png" alt="롤 아이콘">
+        <span>github</span>
+      </a>
     </div>
 
 
-
-    <div class="windowIcon">
+    <div class="windowIcon lolIcon">
       <img class="icon" src="../img/icons/Install League of Legends kr_0_0.ico" alt="롤 아이콘">
       <span>league of legend</span>
     </div>
   
 
-    <div class="windowIcon">
-      <img class="icon" src="../img/icons/TreeEarth.png" alt="롤 아이콘">
-      <span>TreeEarth</span>
-    </div>
+    <a href="https://meowing-ginger-32f.notion.site/TreeEarth-74e1cad947fa4d48aacfa053dc25070a" target="_blank">
+      <div class="windowIcon">
+        <img class="icon" src="../img/icons/TreeEarth.png" alt="롤 아이콘">
+        <span>TreeEarth</span>
+      </div>
+    </a>
   
   </div>
 
-  <!-- ================================================== -->
+
+  <!-- 폴더 ================================================== -->
 
   <div class="backFolder">
     <div class="folderLeft">
@@ -235,6 +276,69 @@
     </div>
   </div>
 
+  <!-- 클라이언트 ================================================== -->
+
+
+  <div class="client">
+
+    <div class="login">
+
+        <img class="mainLogo" src="../img/riot.png" alt="라이엇 로고" width="150px">
+
+
+      <div class="loginContent">
+
+        <div class="loginWord">
+          <h2>로그인</h2>
+        </div>
+
+        <div class="id">
+          <span class="idSpan">계정이름</span>
+          <input type="text" >
+        </div>
+        
+        <div class="passwd">
+          <span class="passwdSpan">비밀번호</span>
+          <input type="password" >
+        </div>
+
+        <div class="logos">
+          <span><i class="fa-brands fa-facebook"></i></span>
+          <span><i class="fa-brands fa-google"></i></span>
+          <span><i class="fa-brands fa-apple"></i></span>
+        </div>
+
+        <input type="checkbox" id="stay">
+        <label for="stay"></label>
+        <span class="stay">로그인 상태 유지</span> 
+
+
+      </div>
+      <div class="loginContent2">
+
+        <a href="client2.html"><span><i class="fa-solid fa-arrow-right"></i></span></a>
+        
+        <a href="">로그인이 안 되시나요?</a><br>
+        <a href="">계정 생성</a>
+      </div>
+
+    </div>
+    
+    <div class="login_screan">
+
+
+
+      <div>
+      <video autoplay loop muted>
+        <source src="../img/mian.mp4" type="video/mp4" >
+      </video>
+     </div>
+
+
+
+    </div>
+  
+  </div>
 
   <!-- 자소서 ================================================== -->
 
@@ -242,8 +346,12 @@
   <div class="container">
 
     <div class="mainDiv">
-
-      <div class="containerTop"></div>
+      
+      <div class="containerTop folderSetting" >
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
       <div class="containerBottom"></div>
 
       <!-- 컨텐츠 -->
@@ -322,15 +430,16 @@
                     <span class="spanCon1"> 
                       보기좋은 사이트가 사용하기도 좋다고 생각합니다.
                     </span>
-                    
+
                     <span class="spanCon1">
-                      "not for self" 나 자신을 위해서가 아닌 타인을 위함이
+                      관습을 존중합니다. 하지만 더 나음이 있다면 틀을 벗어나 타파구를 찾습니다!
+                    </span>
+
+                    <span class="spanCon1">
+                      "not for self" 나 자신을 위해서가 아닌, 타인을 위함이
                       저의 중요한 가치관 중 하나입니다.
                     </span>
              
-                    <span class="spanCon1">
-                      실력을 쌓아 끝에는 새로운 일을 선구하고자 하는 비전을 가지고 있습니다. 
-                    </span>
                 </div>
               </div>
 
