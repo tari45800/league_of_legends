@@ -19,14 +19,6 @@ a{
   font-size: 14px;
 }
 
-body{
-  background-image: url(../img/wallpaper.jpg);
-  object-fit: cover;
-  width: 100vw;
-  clip: rect( 20px, 220px, 220px, 20px );
-
-}
-
 
 .blur{
   position: absolute;

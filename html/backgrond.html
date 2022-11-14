@@ -25,58 +25,90 @@
           $('.backFolder').css({'display':'block'})
         })
 
+
         //어바웃미 폴더 닫기
         $('.folderLeft .folderSetting span:nth-of-type(1)').click(function(){
           $('.backFolder').css({'display':'none'})
         })
         
+
         //어바웃미 열기
         $('.folderContent .windowIcon').dblclick(function(){
+          
+          var num = $(this).index()
+          var name = $(this).find('span').html()
+
           $('.mainDiv').css({'display':'block'})
-          $('input[name="nav"]').eq(0).addClass("active");
+          $('input[name=nav]').eq(num).prop("checked", true);
+          $('input[name="nav"]').eq(num).addClass("active");
+          $('.containerTop div').html(name);
         })
 
         //어바웃미 폴더 닫기
         $('.mainDiv .containerTop span:nth-of-type(1)').click(function(){
           $('.mainDiv').css({'display':'none'})
         })
+        
+        //어바웃미 폴더 닫기
+        $('.mainDiv .containerTop span:nth-of-type(3)').click(function(){
+          $('.mainDiv').toggleClass('bigMainDiv')
+        })
+
+
+        // ==================================================
+
+        //이력서 폴더 열기
+        $('.windowIcon:nth-of-type(2)').dblclick(function(){
+          $('.backFolder').css({'display':'block'})
+          $('.folderContent').html('')
+          $('.folderContent').prepend(
+          '<div class="windowIcon"><img class="icon" src="../img/img.jpg" alt="롤 아이콘"><span>이력서</span></div> <div class="windowIcon"><img class="icon" src="../img/img.jpg" alt="롤 아이콘"><span>이력서 사진</span></div>')
+        })
+
+        //어바웃미 폴더 닫기
+        $('.folderLeft .folderSetting span:nth-of-type(1)').click(function(){
+          $('.backFolder').css({'display':'none'})
+        })
 
         
         // ==================================================
+    
+        // 컨텐츠 애니메이션
+        $('input[name="nav"]').click(function(){
+          $(this).addClass("active");
+        })
+
+
         // ==================================================
-  
-      // 컨텐츠 애니메이션
-      $('input[name="nav"]').click(function(){
-        $(this).addClass("active");
-      })
+        $('.titleSpan span').mouseover(function(){
+            $(this).css({'transform':'rotate(1deg)'})
+        })
 
-      //==================================================
-      $('.titleSpan span').mouseover(function(){
-          $(this).css({'transform':'rotate(1deg)'})
-      })
-
-      $('.titleSpan span').mouseout(function(){
-           $(this).css({'transform':'rotate(-1deg)'})
-      })
+        $('.titleSpan span').mouseout(function(){
+            $(this).css({'transform':'rotate(-1deg)'})
+        })
 
 
-      //==================================================
+        // ==================================================
 
+        //포폴에 마우스 아웃
         $('.mainDiv').mouseout(function(){
-          $('.btn label').css({'opacity':'0', 'margin-top':'20px'})
+          $('.btn').css({'opacity':'0', 'margin-top':'20px'})
           $('.btn2 span:nth-child(1)').css({'opacity':'0', 'left':'14%'})
           $('.btn2 span:nth-child(2)').css({'opacity':'0', 'left':'86%'})
 
         })
 
+        //포폴에 마우스 오버
         $('.mainDiv').mouseover(function(){
-          $('.btn label').css({'opacity':'0.7','margin-top':'0'})
+          $('.btn').css({'opacity':'1','margin-top':'0'})
           $('.btn2 span:nth-child(1)').css({'opacity':'0.7', 'left':'16%'})
           $('.btn2 span:nth-child(2)').css({'opacity':'0.7', 'left':'84%'})
         })
 
-      // ==================================================
+        // ==================================================
 
+        //포폴에 방향키 클릭1
         $('.btn2 span:nth-child(1)').click(function(){
           var num = $('input[name=nav]:checked').index('input[name=nav]');
            
@@ -91,6 +123,7 @@
 
         })
 
+        //포폴에 방향키 클릭2
         $('.btn2 span:nth-child(2)').click(function(){
           var num = $('input[name=nav]:checked').index('input[name=nav]');
 
@@ -106,10 +139,11 @@
           
         // ==================================================
 
-        //아이콘 클릭
+        //롤 아이콘 클릭
         $('.lolIcon').dblclick(function(){
           $('.client').css({"display":"block"})
         })
+
 
         // ==================================================
 
@@ -133,6 +167,44 @@
           }
           $(this).css({"background-color": "#eee"})
         })
+
+
+        // ==================================================
+
+        //아이콘 떨림
+        var cnt = 0;
+        var timer = setInterval(function(){
+          cnt++
+
+          //3초가 지나면
+          if(cnt >= 3){
+
+            //떨기
+            $('.vi').css({'animation':'vibration2 0.2s infinite'})
+
+            //클릭시 인터벌 초기화
+            $('.windowIcon').click(function(){
+            cnt = 0;
+
+            //눌린 아이콘은 떨림 영구 제거
+            $('.windowIcon').css({'animation':'vibration2 0.2s'})
+            $(this).removeClass('vi');
+            })
+          }
+
+          //폴더가 열려 있으면 떨림 제거
+          if( $('.backFolder').css('display') == 'block'){
+            cnt--
+          }
+
+        }, 1000)
+
+
+        // ==================================================
+        // ==================================================
+
+
+        
       })
   
     </script>
@@ -141,6 +213,7 @@
   
   </head>
 <body>
+  <img class="wallpaper" src="../img/wallpaper.jpg" alt="">
   
   <!-- 아이콘 ================================================== -->
 
@@ -154,13 +227,13 @@
   </div> -->
   <div class="iconDiv">
 
-    <div class="windowIcon">
+    <div class="windowIcon vi">
       <img class="icon" src="../img/icons/folder.png" alt="롤 아이콘">
       <span>about me</span>
     </div>
 
 
-    <div class="windowIcon">
+    <div class="windowIcon vi">
       <img class="icon" src="../img/icons/folder.png" alt="롤 아이콘">
       <span>이력서</span>
     </div>
@@ -210,13 +283,13 @@
 
   
     <a href="https://meowing-ginger-32f.notion.site/MAIN-d5a0e516e6bd433e97f519eb7b655ad6" target="_blank">
-      <div class="windowIcon">
+      <div class="windowIcon vi">
         <img class="icon" src="../img/icons/Notion Setup 2.0.ico" alt="롤 아이콘">
         <span>Notion</span>
       </div>
     </a>
     
-    <div class="windowIcon">
+    <div class="windowIcon vi">
       <a href="https://github.com/tari45800" target="_blank">
         <img class="icon" src="../img/icons/github.png" alt="롤 아이콘">
         <span>github</span>
@@ -224,14 +297,14 @@
     </div>
 
 
-    <div class="windowIcon lolIcon">
+    <div class="windowIcon lolIcon vi">
       <img class="icon" src="../img/icons/Install League of Legends kr_0_0.ico" alt="롤 아이콘">
       <span>league of legend</span>
     </div>
   
 
     <a href="https://meowing-ginger-32f.notion.site/TreeEarth-74e1cad947fa4d48aacfa053dc25070a" target="_blank">
-      <div class="windowIcon">
+      <div class="windowIcon vi">
         <img class="icon" src="../img/icons/TreeEarth.png" alt="롤 아이콘">
         <span>TreeEarth</span>
       </div>
@@ -318,8 +391,68 @@
     </div>
   </div>
 
-  <!-- 클라이언트 ================================================== -->
+  <!-- 이력서 ================================================== -->
 
+  <div class="resume">
+    <div class="resumeContent">
+      <div>
+        <p>[ 코딩이 적성인 개발자 ]
+
+
+          8살에 자퇴를 했습니다.
+          정해진 틀을 벗어나 자유롭게 키우고 싶으셨던 부모님의 권유였습니다.
+          주도적인 학습을 해야 하는 홈스쿨링을 통해 문제 해결 능력과 사고력을 키웠지만, 막상 이를 적용할 수 있는 곳을 찾지 못했습니다. 그러다 우연한 계기로 시작한 코딩은 단숨에 저를 사로잡았습니다.
+          
+          코딩에 매료된 것은 처음 학원에서 문제를 풀었을 때였습니다.
+          반복문을 통해 *기호를 피라미드 모양으로 콘솔에 출력하는 일이었는데 마치 재미있는 퀴즈 같았습니다.
+          평소에도 추리소설이나 간단한 퀴즈의 정답을 유추하는 일을 좋아했던 저는 색다른 시각에서 문제에 접근할 수 있었습니다. 코드를 어떻게 구상할지 생각하기보다, 먼저 결과를 이미지화 했습니다. 그것은 마치 공백으로 만든 삼각형과 *기호로 만든 삼각형 4개를 이어 붙인 사각형처럼 보였고 이를 바탕으로 코드를 구현해 문제를 해결할 수 있었습니다.
+          
+          저는 풀었던 코드를 정리하고 다른 사람들은 아직 코드를 구현했습니다. 그것이 30분을 넘어갈 때, 제가 남들보다 재미있고 빠르게 문제를 풀 수 있었다는 것을 깨달았습니다. 그 순간 개발자야말로 저의 진가를 발휘할 수 있는 환경임을 확신했습니다.
+        </p>
+
+        <p>
+          [ 사람이 우선인 개발자 ]
+
+
+모든 게 자유로웠던 부모님께서 한 가지 당부하며 가르치신 것은 이타심입니다. 그런 교육의 목적으로 고등학생 때 일주일에 한 번, 맨 종일 봉사활동을 했습니다.
+사회적 약자들과의 교류는 모든 사람은 사연이 있어 늙고, 아픈 게 아니며 결국 누군가의 보살핌을 받아야 하는 잠재적 약자임을 시사했습니다.
+
+프로젝트를 진행하는 동안에도 코드를 어려워하는 팀원들을 도울 수 있었습니다.
+처음은 간단한 질문을 통해 결과를 도출할 수 있도록 이끌어 내었습니다. 하지만 기본이 제대로 정리가 되어 있지 않아, 프로젝트가 진행될수록 본인이 맡은 분량을 감당하기 힘든 상태가 되었습니다. 분명 대신 코드를 치면 더 수월하게 일이 진행될 수 있던 상황이었지만 최선의 방법이 아녔습니다.
+고민 끝에 제가 할 수 있었던 것은 당장 시간과 노력이 많이 들지만, 수업을 정리해둔 요약 글을 바탕으로 이해하기 쉽게 예시 코드를 만들어 기초를 다지는 일이었습니다.
+노력한 결과 원리를 이해시킬 수 있었고 종전에는 이 개념을 다른 조원에게 다시 알려줄 수 있게 하여 오히려 마감을 앞당길 수 있는 쾌거를 이루었습니다.
+        </p>
+
+        <p>[ 원리가 중요한 개발자 ]
+
+
+          백엔드 프로젝트에서도 프론트엔드를 맡을 적임자가 필요했고 도전해보고 싶었던 제가 자원해서 맡았습니다.
+          쉽다는 소문을 우스갯소리로 들어와서인지 가벼운 마음으로 시작한 프론트는 몇 줄 적지 못하고 손이 멈췄습니다. 백지나 다름없는 상태였던 저는 상자를 원하는 위치로 배치하는 것조차 할 수 없었습니다. 검색으로 코드를 따라치는 것은 하루 벌어 하루 살기였고, 원리를 정확히 파악하지 못해 적용이 느린 건지 코드를 잘못 친 건지 알 수 가 없었습니다.
+          마감일이 2주 정도로 임박했지만, 코드를 베껴오는 것은 스스로 용납할 수 없었습니다. 결국, 일주일 동안 CSS 책을 정독했고 나머지 일주일을 프로젝트에 할애했습니다.
+          그 결과 저는 전반적인 디자인, 탭 메뉴, 룰렛 기계, 배너 등 다양한 기능을 구현하고 종전에는 이를 바탕으로 백과 프론트를 접목해 크라우드 펀딩 페이지를 만들 수 있었습니다.
+          
+          원리를 알기 위한 갈증과, 이해를 바탕으로 한 새로운 가치 창출은 귀사가 바라는 역량에 누구와도 뒤지지 않는다 자부합니다. 그리고 이는 앞으로의 개발자로서 큰 자산이 되리라 기대합니다.
+        </p>
+
+        <p>[ 송곳 같은 개발자 ]
+
+
+          여러 경험을 통한 후회 없는 유년시절을 보냈습니다. 그리고 이는 타인에게 베풀 수 있는 원동력이자,
+          이타적인 삶이라는 중요한 가치관으로 자리매김했습니다.
+          
+          또한 여러 번의 만족스러운 성과와 결말에 대한 해소, 고민하던 문제 해결은 단순히 어느 단락의 맺으므로 끝나지 않고 오히려 저로 하여금 성숙한 단계에 이를 수 있게 했습니다. 
+          
+          이를 통한 문제 해결 능력과 감수성, 심미적 식견은 저를 더욱 빠르고 넓은 보폭으로 나아가게 하여
+          백앤드 과정에서 프론트를 병행하여 수료할 수 있는 성과를 만들어 보였습니다. 
+          
+          그때는 알지 못했지만, 저는 이런 숱한 경험을 단단하고 흔들리지 않을 수 있는 넓은 발판이라 회고합니다.
+          이제는 집중을 통해 전문적인 경험과 지식을 쌓아 실력을 키워 뭉툭한 끝을 다듬어 가는 과정이 필요하다는 것을 절실히 체감하며, 이 유의미 한 것들을 개발자라는 가닥으로 묶어, 훗날 사회적 변혁의 가능성을 불러올 수 있는 첨예한 송곳이 되리라 확신합니다.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 클라이언트 ================================================== -->
 
   <div class="client">
 
@@ -393,6 +526,7 @@
           <span></span>
           <span></span>
           <span></span>
+          <div></div>
       </div>
       <div class="containerBottom"></div>
 
@@ -408,12 +542,12 @@
         
         <!-- 네비 버튼 -->
         <div class="btn">
-          <label for="nav1"></label>
-          <label for="nav2"></label>
-          <label for="nav3"></label>
-          <label for="nav4"></label>
-          <label for="nav5"></label>
-          <label for="nav6"></label>
+          <label for="nav1"><img src="../img/about_me/a1.png" alt=""></label>
+          <label for="nav2"><img src="../img/about_me/a2.png" alt=""></label>
+          <label for="nav3"><img src="../img/about_me/a3.png" alt=""></label>
+          <label for="nav4"><img src="../img/about_me/a4-1.png" alt=""></label>
+          <label for="nav5"><img src="../img/about_me/a4-2.png" alt=""></label>
+          <label for="nav6"><img src="../img/about_me/a5.png" alt=""></label>
         </div>
 
         <div class="btn2">
