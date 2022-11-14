@@ -43,10 +43,11 @@ body{
   transform: translate(-50%, -50%);
   width: 50%;
   height: 60%;
-  border: 1px solid #000;
   border-radius: 12px;
   overflow: hidden;
-  display: none;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+
+  /* display: none; */
 }
 
 /* 폴더 왼쪽 */
@@ -59,7 +60,6 @@ body{
 
 /* 창 조절 */
 .folderSetting{
-  border: 1px solid #000;
   height: 10%;
   display: flex;
 }
@@ -89,19 +89,39 @@ body{
 }
 
 .folderKategorie span{
+  position: relative;
   display: block;
   font-family: 'S-CoreDream-3Light';
   color: rgba(0, 0, 0, 0.8);
   font-weight: 900;
-  font-size: 11px;
-  padding: 6px;
-  padding-left: 40px;
+  font-size: 5px;
+  padding: 5.1px;
+  padding-left: 35px;
   cursor: pointer;
 }
+
+.folderKategorie span i{
+  position: absolute;
+  top: 50%;
+  left: 13%;
+  transform: translate(-50%, -50%);
+  font-size: 13px;
+  color: rgb(48, 100, 255);
+}
+
+
 .folderKategorie span:nth-of-type(1){
-  font-size: 8px;
+  font-size: 5px;
   color: rgba(0, 0, 0, 0.6);
   padding-left: 12px;
+}
+
+.folderKategorie span:nth-of-type(13){
+  font-size: 5px;
+  color: rgba(0, 0, 0, 0.6);
+  padding-left: 12px;
+  margin-top: 5px;
+  letter-spacing: 0.5px;
 }
 
 .folderRight{
@@ -109,24 +129,84 @@ body{
   height: 100%;
   background-color: white;
   float: right;
+  border-left: 1px solid #ddd;
+  box-sizing: border-box;
 }
 
 .folderTop{
-  border: 1px solid #000;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   height: 10%;
   display: flex;
 }
 
 .folderContent{
-  border: 1px solid #000;
   height: 80%;
-  display: flex;
 }
 
 .folderBottom{
-  border: 1px solid #000;
   height: 10%;
   display: flex;
+  border-top: 1px solid #ddd;
+}
+
+/* 폴더 안에 아이콘 */
+.folderContent .windowIcon{
+  position: relative;
+  width: 160px;
+  height: 130px;
+  margin: 20px;
+}
+
+/* 폴더 안에 아이콘 이미지 */
+.folderContent .windowIcon img{
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%,0%);
+}
+
+/* 폴더 안에 폴더 이름 */
+.folderContent .windowIcon span{
+  width: 100px;
+  top: 85%;
+  left: 50%;
+  color: #333333;
+  text-shadow : none;
+  font-size: 10px;
+  
+}
+
+/* 폴더안에 아이콘 이미지2 */
+.folderContent .icon{
+  width: 140px;
+  height: 80px;
+  cursor: pointer;
+}
+
+/* 아이콘 커버 */
+.folderedge{
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 90px;
+  background-color: white;
+  box-shadow : 0px 1px 4px rgba(0, 0, 0, 0.3);
+
+}
+
+.folderTop span{
+  margin: auto 0;
+  margin-left: 10px;
+  font-size: 12px;
+  color: #333333;
+}
+
+.folderTop span i{
+  margin: auto 10px;
+  color: #aaa;
 }
 
 /* ================================================== */
@@ -163,7 +243,6 @@ body{
 }
 
 .blur div:nth-of-type(3){
-  display: inline-block;
   float: left;
   width: 10%;
   height: 10%;
