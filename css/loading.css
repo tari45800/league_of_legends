@@ -1,0 +1,138 @@
+@font-face {
+  font-family: 'MICEGothic Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'S-CoreDream-3Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'MICEGothic Bold';
+  font-weight: 400;
+}
+
+a{
+  text-decoration: none;
+  color: #ccc;
+  font-size: 14px;
+}
+
+
+.black{
+  position: relative;
+  height: 100vh;
+  background-color: rgb(10, 10, 10);
+  transition: 2s;
+}
+
+
+.bd{
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 550px;
+  height: 250px;
+  border: 1px solid white;
+  opacity: 0;
+  transition: 2s;
+}
+
+.black div i, .lee, .lee2, .lee3{
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 120px;
+  color: white;
+  transition: 2s;
+  letter-spacing: 5px;
+}
+
+.lee, .lee2, .lee3{
+  opacity: 0;
+}
+
+.lee{
+  top: 30%;
+  left: 48%;
+}
+
+.lee2{
+  top: 46.5%;
+  left: 44%;
+}
+.lee3{
+  top: 46.5%;
+  left: 60.5%;
+}
+
+
+.progressbar{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 200px;
+  height: 5px;
+  border: 1px solid white;
+  border-radius: 50px;
+  overflow: hidden;
+  transition: 2s;
+}
+
+.progressbar div{
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200px;
+  height: 10px;
+  background-color: white;
+  animation: progress ease-in-out 8s;
+  animation-fill-mode: forwards;
+
+}
+
+
+@keyframes progress {
+  0%{
+    left: -100%;
+  }
+
+  10%{
+    left: -90%;
+  }
+
+  20%{
+    left: -85%;
+  }
+  
+  30%{
+    left: -80%;
+  }
+  
+  40%{
+    left: -75%;
+  }
+
+  50%{
+    left: -65%;
+  }
+
+  95%{
+    left: -5%;  
+  }
+
+  100%{
+   left: 0;
+  }
+
+}
