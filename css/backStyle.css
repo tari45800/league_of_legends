@@ -35,6 +35,7 @@ a{
 
 /* 폴더 ================================================== */
 
+
 /* 폴더 */
 .backFolder{
   position: absolute;
@@ -47,6 +48,30 @@ a{
   overflow: hidden;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
   display: none;
+}
+
+
+/* 이력서 폴더 */
+.backFolder2{
+  position: absolute;
+  top: 55%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 60%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.backFolder2 .windowIcon img{
+  width: 70px;
+}
+
+.backFolder2 .windowIcon .folderedge{
+  width: 75px;
+  height: 86px;
 }
 
 /* 폴더 왼쪽 */
@@ -313,13 +338,28 @@ a{
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .resumeContent{
-  width: 500px;
+  width: 600px;
   height: 600px;
   background-color: #eee;
+  margin-top: 50px;
+  padding:20px 10px;
   overflow: auto;
+}
+
+.resume .containerTop{
+
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+}
+
+p{
+  font-family: 'S-CoreDream-3Light';
 }
 
 @keyframes vibration2 {
