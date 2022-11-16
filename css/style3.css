@@ -55,7 +55,7 @@ a{
 /* 휘장 디브 */
 .curtain{
   position: relative;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   box-sizing: border-box;
   width: 25%;
   height: 100%;
@@ -84,7 +84,7 @@ a{
 
 /* 아이콘 카테고리 */
 .iconSetting{
-  border-bottom: 1px solid blue;
+  /* border-bottom: 1px solid blue; */
   box-sizing: border-box;
   width: 71%;
   float: left;
@@ -110,14 +110,14 @@ a{
   display: block;
   font-size: 30px;
   background-color: rgb(0, 0, 0);;
-  border: 3px solid yellow;
+  /* border: 3px solid yellow; */
   margin: 15px 0;
 
 }
 
 /* 아이콘 컬렉션 */
 .iconsDiv{
-  border: 1px solid green;
+  /* border: 1px solid green; */
   box-sizing: border-box;
   width: 71%;
   height: 75%;
